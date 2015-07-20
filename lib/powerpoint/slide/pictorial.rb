@@ -5,7 +5,7 @@ module Powerpoint
     class Pictorial
       include Powerpoint::Util
 
-    	attr_reader :image_name, :title, :coords, :image_path
+    	attr_reader :image_name, :coords, :image_path
 
     	def initialize(arguments={})
 				require_arguments [:presentation, :title, :image_path], arguments
@@ -22,6 +22,10 @@ module Powerpoint
 
       def file_type
         File.extname(image_name).gsub('.', '')
+      end
+
+      def title
+        escape_xml(@title)
       end
 
     	private

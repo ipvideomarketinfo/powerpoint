@@ -2,8 +2,6 @@ module Powerpoint
   module Slide
     class Intro
       include Powerpoint::Util
-      
-      attr_reader :title, :subtitile
 
       def initialize(arguments={})
         require_arguments [:title, :subtitile], arguments
@@ -13,6 +11,12 @@ module Powerpoint
       def save(index)
         save_rel_xml(index)
         save_slide_xml(index)
+      end
+
+      [:title, :subtitile].each do |attribute|
+        define_method(attribute) do
+          escape_xml instance_variable_get("@#{attribute}")
+        end
       end
 
       private
