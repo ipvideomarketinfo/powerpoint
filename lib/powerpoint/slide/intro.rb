@@ -1,6 +1,3 @@
-require 'fileutils'
-require 'erb'
-
 module Powerpoint
   module Slide
     class Intro
@@ -8,9 +5,9 @@ module Powerpoint
       
       attr_reader :title, :subtitile
 
-      def initialize(options={})
-        require_arguments [:title, :subtitile], options
-        options.each {|k, v| instance_variable_set("@#{k}", v)}
+      def initialize(arguments={})
+        require_arguments [:title, :subtitile], arguments
+        arguments.each {|k, v| instance_variable_set("@#{k}", v)}
       end
 
       def save(index)

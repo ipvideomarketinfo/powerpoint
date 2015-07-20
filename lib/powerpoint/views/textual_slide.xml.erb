@@ -27,7 +27,9 @@
         </p:nvSpPr>
         <p:spPr/>
         <p:txBody>
-          <a:bodyPr/>
+          <a:bodyPr>
+            <a:normAutofit fontScale="<%= font_scale || '90000' %>"/>
+          </a:bodyPr>
           <a:lstStyle/>
           <a:p>
             <a:r>
@@ -38,6 +40,7 @@
           </a:p>
         </p:txBody>
       </p:sp>
+      <% if content.any? %>
       <p:sp>
         <p:nvSpPr>
           <p:cNvPr id="3" name="Content Placeholder 2"/>
@@ -65,6 +68,7 @@
           <% end %>
         </p:txBody>
       </p:sp>
+    <% end %>
     </p:spTree>
     <p:extLst>
       <p:ext uri="{BB962C8B-B14F-4D97-AF65-F5344CB8AC3E}">

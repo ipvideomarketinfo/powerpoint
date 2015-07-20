@@ -1,3 +1,7 @@
+require 'fileutils'
+require 'erb'
+require 'rexml/document'
+
 module Powerpoint
   module Util
 
@@ -21,6 +25,10 @@ module Powerpoint
 
     def extract_path
       @presentation.extract_path
+    end
+
+    def escape_xml string
+      REXML::Text.new(string).to_s
     end
   end
 end
