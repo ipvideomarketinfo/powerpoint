@@ -24,8 +24,8 @@ module Powerpoint
       end
 
       def font_scale
-        if options[:fontScale]
-          ((options[:fontScale] * 0.01) * 90000).to_i
+        if options[:font_scale]
+          ((options[:font_scale] * 0.01) * 90000).to_i
         end
       end
 
